@@ -101,7 +101,8 @@ async function getEnglishTrackDetails(trackId, token) {
     const url = `https://api.spotify.com/v1/tracks/${trackId}`;
     const response = await fetch(url, {
         headers: {
-            'Authorization': `Bearer ${token}`
+            'Authorization': `Bearer ${token}`,
+            'Accept-Language': 'en',
         }
     });
     const trackData = await response.json();
@@ -134,7 +135,8 @@ window.addEventListener('load', async () => {
             {
                 const response = await fetch('https://api.spotify.com/v1/me/player', {
                     headers: {
-                        'Authorization': `Bearer ${token}`
+                        'Authorization': `Bearer ${token}`,
+                        'Accept-Language': 'en',
                     }
                 });
                 const data = await response.json();
